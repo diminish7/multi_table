@@ -1,0 +1,8 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - bin/*
+    - spec/test_app/bin/*
+
+Metrics/LineLength:
+  Max: 100
