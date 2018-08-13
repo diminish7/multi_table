@@ -21,8 +21,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 5.0'
 
+  s.add_development_dependency 'byebug'
   s.add_development_dependency 'factory_bot_rails', '~> 4.10'
   s.add_development_dependency 'rspec-rails', '~> 3.8'
   s.add_development_dependency 'rubocop', '0.58.2'
+  s.add_development_dependency 'shoulda-matchers', '~> 3.1'
   s.add_development_dependency 'sqlite3'
 end
