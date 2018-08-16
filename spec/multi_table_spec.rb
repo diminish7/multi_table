@@ -2,12 +2,6 @@
 
 RSpec.describe MultiTable, type: :model do
   describe 'base class' do
-    describe '.inheritance_column' do
-      it 'uses the same inheritence column as the polymorphic association column' do
-        expect(Pet.inheritance_column).to eq(MultiTable::INHERITANCE_COLUMN)
-      end
-    end
-
     context 'validations' do
       subject { build(:pet) }
 

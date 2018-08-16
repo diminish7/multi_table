@@ -18,11 +18,12 @@ ActiveRecord::Schema.define(version: 2018_08_13_130723) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
-    t.string "subclass_type"
-    t.integer "subclass_id"
+    t.string "multi_table_type"
+    t.integer "multi_table_id"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subclass_type", "subclass_id"], name: "index_pets_on_subclass_type_and_subclass_id"
+    t.index ["multi_table_type", "multi_table_id"], name: "index_pets_on_multi_table_type_and_multi_table_id"
   end
 
 end

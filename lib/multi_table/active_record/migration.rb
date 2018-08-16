@@ -2,21 +2,24 @@
 
 module MultiTable
   module Migration
-    # Adds the `#with_subclass` migration helper to automatically add the `#subclass_type`
-    # and `#subclass_id` columns used by `MultiTable` to track subclass tables
+    # Adds the `#multi_table` migration helper to automatically add the `#type`, `#multi_table_type`
+    # and `#multi_table_id` columns used by `MultiTable` to track subclass tables
     module TableDefinition
-      def with_subclasses(options = {})
-        references(:subclass, options.merge(polymorphic: true))
+      def multi_table(options = {})
+        references :multi_table, options.merge(polymorphic: true)
+        string :type
       end
     end
 
-    # Adds the `#remove_with_subclass` migration helper to automatically remove the
-    # `#subclass_type` and `#subclass_id` columns used by `MultiTable` to track subclass tables
+    # Adds the `#remove_multi_table` migration helper to automatically remove the
+    # `#type`, `#multi_table_type` and `#multi_table_id` columns used by `MultiTable` to
+    # track subclass tables
     module Table
       include TableDefinition
 
-      def remove_with_subclasses(options = {})
-        @base.remove_reference(@name, :subclass, options.merge(polymorphic: true))
+      def remove_multi_table(options = {})
+        @base.remove_column(@name, :type, :string)
+        @base.remove_reference(@name, :multi_table, options.merge(polymorphic: true))
       end
     end
   end

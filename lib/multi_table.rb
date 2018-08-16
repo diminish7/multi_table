@@ -8,9 +8,7 @@ require 'multi_table/active_record/migration'
 module MultiTable
   extend ActiveSupport::Concern
 
-  INHERITANCE_COLUMN = 'subclass_type'
-
   included do
-    self.inheritance_column = INHERITANCE_COLUMN
+    belongs_to :multi_table, polymorphic: true
   end
 end
