@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_130723) do
+ActiveRecord::Schema.define(version: 2018_08_24_125402) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "breed"
+    t.boolean "mix", default: true, null: false
+  end
+
+  create_table "fish", force: :cascade do |t|
+    t.boolean "freshwater"
   end
 
   create_table "pets", force: :cascade do |t|

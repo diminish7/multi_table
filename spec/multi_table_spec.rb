@@ -11,7 +11,7 @@ RSpec.describe MultiTable, type: :model do
   end
 
   describe 'sub class' do
-    subject { build(:dog, breed: 'German Shepherd') }
+    subject { build(:dog, :purebred, breed: 'German Shepherd') }
 
     it { is_expected.to be_a(Pet) }
     it { is_expected.to validate_presence_of(:name) }
@@ -23,6 +23,7 @@ RSpec.describe MultiTable, type: :model do
 
     it 'persists the secondary table' do
       expect(subject.breed).to eq('German Shepherd')
+      expect(subject.mix?).to be_falsey
 
       expect do
         expect do

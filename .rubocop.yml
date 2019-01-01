@@ -7,3 +7,14 @@ AllCops:
 
 Metrics/LineLength:
   Max: 100
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - spec/**/*
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/AbcSize:
+  Max: 20
